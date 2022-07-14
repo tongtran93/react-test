@@ -1,0 +1,84 @@
+.c-poke-list {
+  max-width: 1440px;
+  margin: 0 auto 50px;
+  padding: {
+    left: 15px;
+    right: 15px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 20px;
+
+    @media screen and (max-width: 991px) {
+      grid-template-columns: auto auto auto;
+    }
+
+    @media screen and (max-width: 767px) {
+      grid-template-columns: auto auto;
+    }
+
+    @media screen and (max-width: 425px) {
+      grid-template-columns: auto;
+    }
+  }
+
+  &__item {
+    text-align: center;
+    background-color: beige;
+    padding: 10px 20px;
+  }
+}
+
+.c-poke {
+  &__avatar {
+    img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__name {
+    text-transform: capitalize;
+  }
+
+  &__abilities {
+    text-align: left;
+
+    span {
+      font-weight: bold;
+    }
+
+    ul {
+      padding-left: 0;
+
+      li {
+        list-style: none;
+        text-transform: capitalize;
+        margin-bottom: 5px;
+        font-size: 14px;
+        
+        &:before {
+          content: '-';
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
+
+.c-pagination {
+  margin-top: 10px;
+  
+  button {
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+}
