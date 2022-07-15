@@ -32,7 +32,7 @@ function App() {
     fetchPokeList();
   }, [requestUrl]);
 
-  function handlePageChange(newPage: any, type: string) {
+  function handlePageChange(newPage: string, type: string) {
     if (type === "next") {
       setPagination({
         ...pagination,

@@ -1,21 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-interface PaginationComponent {
+interface PaginationInterface {
     pagination: any,
     onPageChange: Function
 };
 
-Pagination.propTypes = {
-    pagination: PropTypes.object.isRequired,
-    onPageChange: PropTypes.func,
-};
-
-Pagination.defaultProps = {
-    onPageChange: null,
-};
-
-function Pagination(props: PaginationComponent) {
+function Pagination(props: PaginationInterface) {
     const {pagination, onPageChange} = props;
     const {next, previous} = pagination;
 
@@ -28,13 +18,13 @@ function Pagination(props: PaginationComponent) {
     return (
         <div className="c-pagination">
             <button
-                disabled={previous === null}
+                disabled={!previous}
                 onClick={() => handlePageChange(previous, "prev")}>
                 Prev
             </button>
 
             <button
-                disabled={next === null}
+                disabled={!next}
                 onClick={() => handlePageChange(next, "next")}>
                 Next
             </button>

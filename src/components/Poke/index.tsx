@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-Poke.propTypes = {
-    url: PropTypes.string,
+type PokemonDetailProps = {
+    id: string;
+    abilities: [];
+    sprites: any;
+    name: string;
+    species: any;
+  };
+interface PokeInterface {
+    url: string
 };
-  
-Poke.defaultProps = {
-    url: '',
-}
 
-function Poke(props: any) {
+function Poke(props: PokeInterface) {
     const { url } = props;
-    const [poke, setPoke] = useState(Object);
+    const [poke, setPoke] = useState<PokemonDetailProps>();
 
     useEffect(() => {
         async function fetchPoke() {
@@ -31,12 +34,12 @@ function Poke(props: any) {
     return (
         <div className="c-poke__wrap">
             <div className="c-poke__avatar">
-                <img src={poke.sprites?.other.dream_world.front_default} alt={poke.species?.name} />
+                <img src={poke?.sprites?.other.dream_world.front_default} alt={poke?.species?.name} />
             </div>
             <div className="c-poke__abilities">
                 <span>Abilities:</span>
                 <ul>
-                    {poke.abilities && poke.abilities.map((skill: {ability: {name: string}}, index: number) => (
+                    {poke?.abilities && poke.abilities.map((skill: {ability: {name: string}}, index: number) => (
                         <li key={index}>{skill.ability.name}</li>
                     ))}
                 </ul>

@@ -1,20 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Poke from '../Poke/index';
 
-PokeList.propTypes = {
-    pokes: PropTypes.array,
+interface PokeListInterface {
+    pokes: {
+        name: string,
+        url: string
+    }[]
 };
 
-PokeList.defaultProps = {
-    pokes: [],
-}
-
-function PokeList(props: any) {
+function PokeList(props: PokeListInterface) {
     const { pokes } = props
     return (
         <div className="c-poke-list__inner">
-            {pokes.map((poke: {name: string, url: string}, index: number) => (
+            {pokes.map((poke, index: number) => (
                 <div className="c-poke-list__item" key={index}>
                     <h3 className="c-poke__name">{poke.name}</h3>
                     <Poke url={poke.url} />
